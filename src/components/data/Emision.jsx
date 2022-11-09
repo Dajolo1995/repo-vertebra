@@ -4,10 +4,9 @@ import CountUp from "react-countup";
 import "./data.css";
 
 function Emision(emition) {
-
   return (
     <Row gutter={[8, 8]} style={{ height: "20vh" }}>
-      <Col span={10} style={{ display: "flex", justifyContent: "center" }}>
+      <Col span={8} style={{ display: "flex", justifyContent: "center" }}>
         <img
           src="https://cdn.discordapp.com/attachments/945309736801288255/979475167157833738/f__hogares_con_energia_por_un_ano-03.png"
           alt="200"
@@ -15,20 +14,20 @@ function Emision(emition) {
         />
       </Col>
 
-      <Col span={12}>
+      <Col span={14}>
         <div className="div-grid-calculator">
           <div className="div-flex-calculator">
             <h3 className="textData">
-              <CountUp end={emition?.emition?.co2  || 0} separator="." />{" "}
+              <CountUp end={emition?.emition?.co2 || 0} separator="." />{" "}
             </h3>
             <img
               className="images-kg"
-              src="https://cdn.discordapp.com/attachments/945309736801288255/979475166893580338/f_-08.png"
+              src="https://cdn.discordapp.com/attachments/945309736801288255/979475167606636644/D_KG-08.png"
               alt="100"
             />
           </div>
-          <span className="text-one">Emisiones CO2</span>
-          <span className="text-two">Equivalente</span>
+          <span className="text-one">CO2</span>
+          {/* <span className="text-two">CO2</span> */}
         </div>
       </Col>
     </Row>

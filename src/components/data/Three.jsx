@@ -6,7 +6,7 @@ import "./data.css";
 const Three = (three) => {
   return (
     <Row gutter={[8, 8]} style={{ height: "20vh" }}>
-      <Col span={10} style={{ display: "flex", justifyContent: "center" }}>
+      <Col span={8} style={{ display: "flex", justifyContent: "center" }}>
         <img
           src="https://cdn.discordapp.com/attachments/945309736801288255/979475168399331349/E___Arboles_con_10_anos_de_vida_cU-03.png"
           alt="200"
@@ -14,7 +14,7 @@ const Three = (three) => {
         />
       </Col>
 
-      <Col span={12}>
+      <Col span={14}>
         <div className="div-grid-calculator">
           <div className="div-flex-calculator">
             <h3 className="textData">
@@ -26,8 +26,8 @@ const Three = (three) => {
               alt="100"
             />
           </div>
-          <span className="text-one">Arboles con 10 años</span>
-          <span className="text-two">de vida c/u</span>
+          <span className="text-one">Arboles</span>
+          {/* <span className="text-two">de vida c/u</span> */}
         </div>
       </Col>
     </Row>

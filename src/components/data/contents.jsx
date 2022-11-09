@@ -44,20 +44,20 @@ const contents = () => {
       Tree,
       co2,
     };
-
     setDatos(variable);
+    setFirstOption(false);
+
   };
 
   useEffect(() => {
     if (FirstOption === true) {
       dataAxios();
-      setFirstOption(false);
-    }
 
-    setInterval(() => {
-      dataAxios();
-    }, 60000);
-  });
+      setInterval(() => {
+        setFirstOption(true);
+      }, 10000);
+    }
+  }, [FirstOption]);
 
   return (
     <>
