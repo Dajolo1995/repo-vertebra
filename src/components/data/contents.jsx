@@ -16,12 +16,13 @@ const contents = () => {
     const day = new Date().getDate();
 
     const data = await axios.get(
-      `http://45.33.117.178:3050/meters/1057?begin_date=%222022-11-${day}T00:00:00.469Z%22&end_date=%222022-11-${day}T23:59:59.469Z%22%27`
+      `http://45.33.117.178:3050/meters/1057?begin_date=%222022-11-8T00:00:00.469Z%22&end_date=%222022-11-8T23:59:59.469Z%22%27`
     );
 
     const datas = await axios.get(
-      `http://45.33.117.178:3050/meters/1054?begin_date=%222022-11-${day}T00:00:00.469Z%22&end_date=%222022-11-${day}T23:59:59.469Z%22%27`
+      `http://45.33.117.178:3050/meters/1054?begin_date=%222022-11-8T00:00:00.469Z%22&end_date=%222022-11-8T23:59:59.469Z%22%27`
     );
+
 
     let totalEnergyConsumed = 0;
     let Tree = 0;
