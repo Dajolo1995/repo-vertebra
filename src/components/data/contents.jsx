@@ -17,13 +17,13 @@ const contents = () => {
       const day = new Date().getDate();
 
       const data = await axios.get(
-        `http://45.33.117.178:3050/meters/1057?begin_date=%222022-11-9T00:00:00.469Z%22&end_date=%222022-11-9T23:59:59.469Z%22%27`
+        `http://45.33.117.178:3050/meters/1057?begin_date=%222022-11-${day}T00:00:00.469Z%22&end_date=%222022-11-${day}T23:59:59.469Z%22%27`
       );
 
       console.log(data);
 
       const datas = await axios.get(
-        `http://45.33.117.178:3050/meters/1054?begin_date=%222022-11-9T00:00:00.469Z%22&end_date=%222022-11-9T23:59:59.469Z%22%27`
+        `http://45.33.117.178:3050/meters/1054?begin_date=%222022-11-${day}T00:00:00.469Z%22&end_date=%222022-11-${day}T23:59:59.469Z%22%27`
       );
 
       console.log(datas);
@@ -31,18 +31,26 @@ const contents = () => {
       let totalEnergyConsumed = 0;
       let Tree = 0;
       let co2 = 0;
+      let sums = 0;
+      let sums2 = 0;
 
       data?.data.forEach((e) => {
+        sums = sums + e.data.consumption;
         totalEnergyConsumed = totalEnergyConsumed + e.data.consumption;
         Tree = Tree + e.data.calculation_tree;
         co2 = co2 + e.data.calculation_co2;
       });
 
+      console.log(sums, "vmeter 1057");
+
       datas?.data.forEach((e) => {
+        sums2 = sums2 + e.data.consumption;
         totalEnergyConsumed = totalEnergyConsumed + e.data.consumption;
         Tree = Tree + e.data.calculation_tree;
         co2 = co2 + e.data.calculation_co2;
       });
+
+      console.log(sums2, "vmeter 1054");
 
       let variable = {
         totalEnergyConsumed,
