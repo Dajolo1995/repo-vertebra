@@ -11,43 +11,49 @@ const contents = () => {
   const [FirstOption, setFirstOption] = useState(true);
 
   const dataAxios = async () => {
-    setDatos(null);
+    try {
+      setDatos(null);
 
-    const day = new Date().getDate();
+      const day = new Date().getDate();
 
-    const data = await axios.get(
-      `http://45.33.117.178:3050/meters/1057?begin_date=%222022-11-8T00:00:00.469Z%22&end_date=%222022-11-8T23:59:59.469Z%22%27`
-    );
+      const data = await axios.get(
+        `http://45.33.117.178:3050/meters/1057?begin_date=%222022-11-9T00:00:00.469Z%22&end_date=%222022-11-9T23:59:59.469Z%22%27`
+      );
 
-    const datas = await axios.get(
-      `http://45.33.117.178:3050/meters/1054?begin_date=%222022-11-8T00:00:00.469Z%22&end_date=%222022-11-8T23:59:59.469Z%22%27`
-    );
+      console.log(data);
 
+      const datas = await axios.get(
+        `http://45.33.117.178:3050/meters/1054?begin_date=%222022-11-9T00:00:00.469Z%22&end_date=%222022-11-9T23:59:59.469Z%22%27`
+      );
 
-    let totalEnergyConsumed = 0;
-    let Tree = 0;
-    let co2 = 0;
+      console.log(datas);
 
-    data?.data.forEach((e) => {
-      totalEnergyConsumed = totalEnergyConsumed + e.data.consumption;
-      Tree = Tree + e.data.calculation_tree;
-      co2 = co2 + e.data.calculation_co2;
-    });
+      let totalEnergyConsumed = 0;
+      let Tree = 0;
+      let co2 = 0;
 
-    datas?.data.forEach((e) => {
-      totalEnergyConsumed = totalEnergyConsumed + e.data.consumption;
-      Tree = Tree + e.data.calculation_tree;
-      co2 = co2 + e.data.calculation_co2;
-    });
+      data?.data.forEach((e) => {
+        totalEnergyConsumed = totalEnergyConsumed + e.data.consumption;
+        Tree = Tree + e.data.calculation_tree;
+        co2 = co2 + e.data.calculation_co2;
+      });
 
-    let variable = {
-      totalEnergyConsumed,
-      Tree,
-      co2,
-    };
-    setDatos(variable);
-    setFirstOption(false);
+      datas?.data.forEach((e) => {
+        totalEnergyConsumed = totalEnergyConsumed + e.data.consumption;
+        Tree = Tree + e.data.calculation_tree;
+        co2 = co2 + e.data.calculation_co2;
+      });
 
+      let variable = {
+        totalEnergyConsumed,
+        Tree,
+        co2,
+      };
+      setDatos(variable);
+      setFirstOption(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
