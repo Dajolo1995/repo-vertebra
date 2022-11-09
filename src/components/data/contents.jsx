@@ -56,7 +56,7 @@ const contents = () => {
 
       setInterval(() => {
         setFirstOption(true);
-      }, 10000);
+      }, 30000);
     }
   }, [FirstOption]);
 
