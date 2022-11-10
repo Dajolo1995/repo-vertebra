@@ -5,6 +5,7 @@ import Emision from "./Emision";
 import Three from "./Three";
 import axios from "axios";
 import Recursos from "../../assets/Recurso 12.png";
+import moment from "moment";
 
 const contents = () => {
   const [datos, setDatos] = useState(null);
@@ -15,6 +16,10 @@ const contents = () => {
       setDatos(null);
 
       const day = new Date().getDate();
+
+      const days = new Date();
+
+      console.log(moment().toISOString());
 
       const data = await axios.get(
         `http://45.33.117.178:3050/meters/1057?begin_date=%222022-11-${day}T00:00:00.469Z%22&end_date=%222022-11-${day}T23:59:59.469Z%22%27`

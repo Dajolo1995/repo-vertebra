@@ -26,7 +26,7 @@ const Three = (three) => {
               alt="100"
             />
           </div>
-          <span className="text-one">Arboles</span>
+          <span className="text-one">Árboles</span>
           {/* <span className="text-two">de vida c/u</span> */}
         </div>
       </Col>

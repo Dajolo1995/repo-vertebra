@@ -8,12 +8,13 @@
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview --port 5173",
-    "deploy":"gh-pages -d build",
-    "predeploy":"pnpm run build"
+    "deploy": "gh-pages -d build",
+    "predeploy": "pnpm run build"
   },
   "dependencies": {
     "antd": "^4.24.1",
     "axios": "^1.1.3",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-countup": "^6.3.2",
     "react-dom": "^18.2.0"
